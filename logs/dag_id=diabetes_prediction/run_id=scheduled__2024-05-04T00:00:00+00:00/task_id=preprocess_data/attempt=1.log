@@ -1,0 +1,13 @@
+[2024-05-05T00:00:17.234+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: diabetes_prediction.preprocess_data scheduled__2024-05-04T00:00:00+00:00 [queued]>
+[2024-05-05T00:00:17.293+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: diabetes_prediction.preprocess_data scheduled__2024-05-04T00:00:00+00:00 [queued]>
+[2024-05-05T00:00:17.293+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2024-05-05T00:00:17.342+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): preprocess_data> on 2024-05-04 00:00:00+00:00
+[2024-05-05T00:00:17.365+0000] {standard_task_runner.py:57} INFO - Started process 9863 to run task
+[2024-05-05T00:00:17.374+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'diabetes_prediction', 'preprocess_data', 'scheduled__2024-05-04T00:00:00+00:00', '--job-id', '257', '--raw', '--subdir', 'DAGS_FOLDER/dag1.py', '--cfg-path', '/tmp/tmp9jpgzg84']
+[2024-05-05T00:00:17.376+0000] {standard_task_runner.py:85} INFO - Job 257: Subtask preprocess_data
+[2024-05-05T00:00:17.639+0000] {task_command.py:410} INFO - Running <TaskInstance: diabetes_prediction.preprocess_data scheduled__2024-05-04T00:00:00+00:00 [running]> on host 9c8b03f5e67f
+[2024-05-05T00:00:17.992+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='diabetes_prediction' AIRFLOW_CTX_TASK_ID='preprocess_data' AIRFLOW_CTX_EXECUTION_DATE='2024-05-04T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-05-04T00:00:00+00:00'
+[2024-05-05T00:00:20.723+0000] {python.py:183} INFO - Done. Returned value was: None
+[2024-05-05T00:00:20.764+0000] {taskinstance.py:1373} INFO - Marking task as SUCCESS. dag_id=diabetes_prediction, task_id=preprocess_data, execution_date=20240504T000000, start_date=20240505T000017, end_date=20240505T000020
+[2024-05-05T00:00:20.883+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2024-05-05T00:00:20.974+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check

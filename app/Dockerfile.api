@@ -1,0 +1,16 @@
+FROM python:3.8 AS fastapi
+
+# Establece el directorio de trabajo en /app
+WORKDIR /app
+
+# Copia los archivos necesarios para Streamlit
+COPY . /app/
+
+# Instala las dependencias para FastAPI
+RUN pip install -r requirements.txt
+
+# Expone el puerto 8000 para FastAPI
+EXPOSE 8000
+
+# Comando para ejecutar la aplicación FastAPI con uvicorn
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

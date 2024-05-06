@@ -1,0 +1,22 @@
+[2024-05-01T16:29:52.918+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: diabetes_prediction.train_model manual__2024-05-01T16:29:20.643090+00:00 [queued]>
+[2024-05-01T16:29:52.948+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: diabetes_prediction.train_model manual__2024-05-01T16:29:20.643090+00:00 [queued]>
+[2024-05-01T16:29:52.949+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2024-05-01T16:29:52.993+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): train_model> on 2024-05-01 16:29:20.643090+00:00
+[2024-05-01T16:29:53.011+0000] {standard_task_runner.py:57} INFO - Started process 1067 to run task
+[2024-05-01T16:29:53.021+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'diabetes_prediction', 'train_model', 'manual__2024-05-01T16:29:20.643090+00:00', '--job-id', '44', '--raw', '--subdir', 'DAGS_FOLDER/dag1.py', '--cfg-path', '/tmp/tmpwonqdn11']
+[2024-05-01T16:29:53.026+0000] {standard_task_runner.py:85} INFO - Job 44: Subtask train_model
+[2024-05-01T16:29:53.156+0000] {task_command.py:410} INFO - Running <TaskInstance: diabetes_prediction.train_model manual__2024-05-01T16:29:20.643090+00:00 [running]> on host c90068845469
+[2024-05-01T16:29:53.406+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='diabetes_prediction' AIRFLOW_CTX_TASK_ID='train_model' AIRFLOW_CTX_EXECUTION_DATE='2024-05-01T16:29:20.643090+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-05-01T16:29:20.643090+00:00'
+[2024-05-01T16:29:53.678+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/dag1.py", line 50, in train_model
+    df3, y2 = ti.xcom_pull(task_ids='preprocess_data', key='preprocessed_data')
+ValueError: too many values to unpack (expected 2)
+[2024-05-01T16:29:53.708+0000] {taskinstance.py:1373} INFO - Marking task as UP_FOR_RETRY. dag_id=diabetes_prediction, task_id=train_model, execution_date=20240501T162920, start_date=20240501T162952, end_date=20240501T162953
+[2024-05-01T16:29:53.737+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 44 for task train_model (too many values to unpack (expected 2); 1067)
+[2024-05-01T16:29:53.807+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2024-05-01T16:29:53.867+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

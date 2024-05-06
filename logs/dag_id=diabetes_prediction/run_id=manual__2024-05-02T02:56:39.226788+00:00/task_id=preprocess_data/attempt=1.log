@@ -1,0 +1,29 @@
+[2024-05-02T02:56:51.151+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: diabetes_prediction.preprocess_data manual__2024-05-02T02:56:39.226788+00:00 [queued]>
+[2024-05-02T02:56:51.175+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: diabetes_prediction.preprocess_data manual__2024-05-02T02:56:39.226788+00:00 [queued]>
+[2024-05-02T02:56:51.175+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2024-05-02T02:56:51.205+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): preprocess_data> on 2024-05-02 02:56:39.226788+00:00
+[2024-05-02T02:56:51.222+0000] {standard_task_runner.py:57} INFO - Started process 593 to run task
+[2024-05-02T02:56:51.231+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'diabetes_prediction', 'preprocess_data', 'manual__2024-05-02T02:56:39.226788+00:00', '--job-id', '71', '--raw', '--subdir', 'DAGS_FOLDER/dag1.py', '--cfg-path', '/tmp/tmpfv6ynirz']
+[2024-05-02T02:56:51.236+0000] {standard_task_runner.py:85} INFO - Job 71: Subtask preprocess_data
+[2024-05-02T02:56:51.363+0000] {task_command.py:410} INFO - Running <TaskInstance: diabetes_prediction.preprocess_data manual__2024-05-02T02:56:39.226788+00:00 [running]> on host c90068845469
+[2024-05-02T02:56:51.597+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='diabetes_prediction' AIRFLOW_CTX_TASK_ID='preprocess_data' AIRFLOW_CTX_EXECUTION_DATE='2024-05-02T02:56:39.226788+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-05-02T02:56:39.226788+00:00'
+[2024-05-02T02:56:52.032+0000] {logging_mixin.py:149} INFO - 1
+[2024-05-02T02:56:52.033+0000] {logging_mixin.py:149} INFO - <class 'pandas.core.frame.DataFrame'>
+[2024-05-02T02:56:53.262+0000] {logging_mixin.py:149} INFO -         admission_type_id  ...  readmitted
+1                       1  ...           0
+2                       1  ...           1
+3                       1  ...           1
+4                       1  ...           1
+5                       2  ...           0
+...                   ...  ...         ...
+101761                  1  ...           0
+101762                  1  ...           1
+101763                  1  ...           1
+101764                  2  ...           1
+101765                  1  ...           1
+
+[98053 rows x 12 columns]
+[2024-05-02T02:56:53.688+0000] {python.py:183} INFO - Done. Returned value was: None
+[2024-05-02T02:56:53.729+0000] {taskinstance.py:1373} INFO - Marking task as SUCCESS. dag_id=diabetes_prediction, task_id=preprocess_data, execution_date=20240502T025639, start_date=20240502T025651, end_date=20240502T025653
+[2024-05-02T02:56:53.831+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2024-05-02T02:56:53.920+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,25 @@
+artifact_path: model
+flavors:
+  python_function:
+    env: conda.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.7.16
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.0.2
+mlflow_version: 1.30.1
+model_uuid: 06c07105052e4035be497ed2aefeed87
+run_id: 85bd0e81330247a583f264bb1a4d4764
+signature:
+  inputs: '[{"name": "admission_type_id", "type": "long"}, {"name": "discharge_disposition_id",
+    "type": "long"}, {"name": "admission_source_id", "type": "long"}, {"name": "time_in_hospital",
+    "type": "long"}, {"name": "num_lab_procedures", "type": "long"}, {"name": "num_procedures",
+    "type": "long"}, {"name": "num_medications", "type": "long"}, {"name": "number_outpatient",
+    "type": "long"}, {"name": "number_emergency", "type": "long"}, {"name": "number_inpatient",
+    "type": "long"}, {"name": "number_diagnoses", "type": "long"}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "int64", "shape": [-1]}}]'
+utc_time_created: '2024-05-03 01:52:27.949998'

@@ -1,0 +1,169 @@
+[2024-05-01T15:43:26.409+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: diabetes_prediction.fetch_dataset manual__2024-05-01T15:24:20.159663+00:00 [queued]>
+[2024-05-01T15:43:26.585+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: diabetes_prediction.fetch_dataset manual__2024-05-01T15:24:20.159663+00:00 [queued]>
+[2024-05-01T15:43:26.586+0000] {taskinstance.py:1331} INFO - Starting attempt 2 of 2
+[2024-05-01T15:43:26.768+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): fetch_dataset> on 2024-05-01 15:24:20.159663+00:00
+[2024-05-01T15:43:26.909+0000] {standard_task_runner.py:57} INFO - Started process 96 to run task
+[2024-05-01T15:43:26.989+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'diabetes_prediction', 'fetch_dataset', 'manual__2024-05-01T15:24:20.159663+00:00', '--job-id', '10', '--raw', '--subdir', 'DAGS_FOLDER/dag1.py', '--cfg-path', '/tmp/tmp15qz1aye']
+[2024-05-01T15:43:27.111+0000] {standard_task_runner.py:85} INFO - Job 10: Subtask fetch_dataset
+[2024-05-01T15:43:28.248+0000] {task_command.py:410} INFO - Running <TaskInstance: diabetes_prediction.fetch_dataset manual__2024-05-01T15:24:20.159663+00:00 [running]> on host c90068845469
+[2024-05-01T15:43:30.856+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='diabetes_prediction' AIRFLOW_CTX_TASK_ID='fetch_dataset' AIRFLOW_CTX_EXECUTION_DATE='2024-05-01T15:24:20.159663+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-05-01T15:24:20.159663+00:00'
+[2024-05-01T15:43:40.566+0000] {warnings.py:110} WARNING - /opt/***/dags/dag1.py:15: DtypeWarning: Columns (10) have mixed types.Specify dtype option on import or set low_memory=False.
+  diabetes_130_us_hospitals_for_years_1999_2008 = fetch_ucirepo(id=296)
+
+[2024-05-01T15:43:40.730+0000] {python.py:183} INFO - Done. Returned value was: {'data': {'ids':         encounter_id  patient_nbr
+0            2278392      8222157
+1             149190     55629189
+2              64410     86047875
+3             500364     82442376
+4              16680     42519267
+...              ...          ...
+101761     443847548    100162476
+101762     443847782     74694222
+101763     443854148     41088789
+101764     443857166     31693671
+101765     443867222    175429310
+
+[101766 rows x 2 columns], 'features':                    race  gender  ... change diabetesMed
+0             Caucasian  Female  ...     No          No
+1             Caucasian  Female  ...     Ch         Yes
+2       AfricanAmerican  Female  ...     No         Yes
+3             Caucasian    Male  ...     Ch         Yes
+4             Caucasian    Male  ...     Ch         Yes
+...                 ...     ...  ...    ...         ...
+101761  AfricanAmerican    Male  ...     Ch         Yes
+101762  AfricanAmerican  Female  ...     No         Yes
+101763        Caucasian    Male  ...     Ch         Yes
+101764        Caucasian  Female  ...     Ch         Yes
+101765        Caucasian    Male  ...     No          No
+
+[101766 rows x 47 columns], 'targets':        readmitted
+0              NO
+1             >30
+2              NO
+3              NO
+4              NO
+...           ...
+101761        >30
+101762         NO
+101763         NO
+101764         NO
+101765         NO
+
+[101766 rows x 1 columns], 'original':         encounter_id  patient_nbr  ... diabetesMed readmitted
+0            2278392      8222157  ...          No         NO
+1             149190     55629189  ...         Yes        >30
+2              64410     86047875  ...         Yes         NO
+3             500364     82442376  ...         Yes         NO
+4              16680     42519267  ...         Yes         NO
+...              ...          ...  ...         ...        ...
+101761     443847548    100162476  ...         Yes        >30
+101762     443847782     74694222  ...         Yes         NO
+101763     443854148     41088789  ...         Yes         NO
+101764     443857166     31693671  ...         Yes         NO
+101765     443867222    175429310  ...          No         NO
+
+[101766 rows x 50 columns], 'headers': Index(['encounter_id', 'patient_nbr', 'race', 'gender', 'age', 'weight',
+       'admission_type_id', 'discharge_disposition_id', 'admission_source_id',
+       'time_in_hospital', 'payer_code', 'medical_specialty',
+       'num_lab_procedures', 'num_procedures', 'num_medications',
+       'number_outpatient', 'number_emergency', 'number_inpatient', 'diag_1',
+       'diag_2', 'diag_3', 'number_diagnoses', 'max_glu_serum', 'A1Cresult',
+       'metformin', 'repaglinide', 'nateglinide', 'chlorpropamide',
+       'glimepiride', 'acetohexamide', 'glipizide', 'glyburide', 'tolbutamide',
+       'pioglitazone', 'rosiglitazone', 'acarbose', 'miglitol', 'troglitazone',
+       'tolazamide', 'examide', 'citoglipton', 'insulin',
+       'glyburide-metformin', 'glipizide-metformin',
+       'glimepiride-pioglitazone', 'metformin-rosiglitazone',
+       'metformin-pioglitazone', 'change', 'diabetesMed', 'readmitted'],
+      dtype='object')}, 'metadata': {'uci_id': 296, 'name': 'Diabetes 130-US Hospitals for Years 1999-2008', 'repository_url': 'https://archive.ics.uci.edu/dataset/296/diabetes+130-us+hospitals+for+years+1999-2008', 'data_url': 'https://archive.ics.uci.edu/static/public/296/data.csv', 'abstract': 'The dataset represents ten years (1999-2008) of clinical care at 130 US hospitals and integrated delivery networks. Each row concerns hospital records of patients diagnosed with diabetes, who underwent laboratory, medications, and stayed up to 14 days. The goal is to determine the early readmission of the patient within 30 days of discharge.\nThe problem is important for the following reasons. Despite high-quality evidence showing improved clinical outcomes for diabetic patients who receive various preventive and therapeutic interventions, many patients do not receive them. This can be partially attributed to arbitrary diabetes management in hospital environments, which fail to attend to glycemic control. Failure to provide proper diabetes care not only increases the managing costs for the hospitals (as the patients are readmitted) but also impacts the morbidity and mortality of the patients, who may face complications associated with diabetes.\n', 'area': 'Health and Medicine', 'tasks': ['Classification', 'Clustering'], 'characteristics': ['Multivariate'], 'num_instances': 101766, 'num_features': 47, 'feature_types': ['Categorical', 'Integer'], 'demographics': ['Race', 'Gender', 'Age'], 'target_col': ['readmitted'], 'index_col': ['encounter_id', 'patient_nbr'], 'has_missing_values': 'yes', 'missing_values_symbol': 'NaN', 'year_of_dataset_creation': 2014, 'last_updated': 'Mon Feb 26 2024', 'dataset_doi': '10.24432/C5230J', 'creators': ['John Clore', 'Krzysztof Cios', 'Jon DeShazo', 'Beata Strack'], 'intro_paper': {'title': 'Impact of HbA1c Measurement on Hospital Readmission Rates: Analysis of 70,000 Clinical Database Patient Record', 'authors': 'Beata Strack, Jonathan DeShazo, Chris Gennings, Juan Olmo, Sebastian Ventura, Krzysztof Cios, John Clore', 'published_in': 'BioMed Research International, vol. 2014', 'year': 2014, 'url': 'https://www.hindawi.com/journals/bmri/2014/781670/', 'doi': None}, 'additional_info': {'summary': 'The dataset represents ten years (1999-2008) of clinical care at 130 US hospitals and integrated delivery networks. It includes over 50 features representing patient and hospital outcomes. Information was extracted from the database for encounters that satisfied the following criteria.\n(1)\tIt is an inpatient encounter (a hospital admission).\n(2)\tIt is a diabetic encounter, that is, one during which any kind of diabetes was entered into the system as a diagnosis.\n(3)\tThe length of stay was at least 1 day and at most 14 days.\n(4)\tLaboratory tests were performed during the encounter.\n(5)\tMedications were administered during the encounter.\n\nThe data contains such attributes as patient number, race, gender, age, admission type, time in hospital, medical specialty of admitting physician, number of lab tests performed, HbA1c test result, diagnosis, number of medications, diabetic medications, number of outpatient, inpatient, and emergency visits in the year before the hospitalization, etc.', 'purpose': None, 'funded_by': None, 'instances_represent': 'The instances represent hospitalized patient records diagnosed with diabetes.', 'recommended_data_splits': 'No recommendation. The standard train-test split could be used. Can use three-way holdout split (i.e., train-validation-test) when doing model selection.', 'sensitive_data': 'Yes. The dataset contains information about the age, gender, and race of the patients.', 'preprocessing_description': None, 'variable_info': 'Detailed description of all the atrributes is provided in Table 1 Beata Strack, Jonathan P. DeShazo, Chris Gennings,  Juan L. Olmo, Sebastian Ventura,  Krzysztof J. Cios, and John N. Clore, “Impact of HbA1c Measurement on Hospital Readmission Rates: Analysis of 70,000 Clinical Database Patient Records,” BioMed Research International, vol. 2014, Article ID 781670, 11 pages, 2014.\n\nhttp://www.hindawi.com/journals/bmri/2014/781670/', 'citation': 'Please cite:\nBeata Strack, Jonathan P. DeShazo, Chris Gennings, Juan L. Olmo, Sebastian Ventura, Krzysztof J. Cios, and John N. Clore, “Impact of HbA1c Measurement on Hospital Readmission Rates: Analysis of 70,000 Clinical Database Patient Records,” BioMed Research International, vol. 2014, Article ID 781670, 11 pages, 2014.'}}, 'variables':                         name     role  ... units missing_values
+0               encounter_id       ID  ...  None             no
+1                patient_nbr       ID  ...  None             no
+2                       race  Feature  ...  None            yes
+3                     gender  Feature  ...  None             no
+4                        age  Feature  ...  None             no
+5                     weight  Feature  ...  None            yes
+6          admission_type_id  Feature  ...  None             no
+7   discharge_disposition_id  Feature  ...  None             no
+8        admission_source_id  Feature  ...  None             no
+9           time_in_hospital  Feature  ...  None             no
+10                payer_code  Feature  ...  None            yes
+11         medical_specialty  Feature  ...  None            yes
+12        num_lab_procedures  Feature  ...  None             no
+13            num_procedures  Feature  ...  None             no
+14           num_medications  Feature  ...  None             no
+15         number_outpatient  Feature  ...  None             no
+16          number_emergency  Feature  ...  None             no
+17          number_inpatient  Feature  ...  None             no
+18                    diag_1  Feature  ...  None            yes
+19                    diag_2  Feature  ...  None            yes
+20                    diag_3  Feature  ...  None            yes
+21          number_diagnoses  Feature  ...  None             no
+22             max_glu_serum  Feature  ...  None             no
+23                 A1Cresult  Feature  ...  None             no
+24                 metformin  Feature  ...  None             no
+25               repaglinide  Feature  ...  None             no
+26               nateglinide  Feature  ...  None             no
+27            chlorpropamide  Feature  ...  None             no
+28               glimepiride  Feature  ...  None             no
+29             acetohexamide  Feature  ...  None             no
+30                 glipizide  Feature  ...  None             no
+31                 glyburide  Feature  ...  None             no
+32               tolbutamide  Feature  ...  None             no
+33              pioglitazone  Feature  ...  None             no
+34             rosiglitazone  Feature  ...  None             no
+35                  acarbose  Feature  ...  None             no
+36                  miglitol  Feature  ...  None             no
+37              troglitazone  Feature  ...  None             no
+38                tolazamide  Feature  ...  None             no
+39                   examide  Feature  ...  None             no
+40               citoglipton  Feature  ...  None             no
+41                   insulin  Feature  ...  None             no
+42       glyburide-metformin  Feature  ...  None             no
+43       glipizide-metformin  Feature  ...  None             no
+44  glimepiride-pioglitazone  Feature  ...  None             no
+45   metformin-rosiglitazone  Feature  ...  None             no
+46    metformin-pioglitazone  Feature  ...  None             no
+47                    change  Feature  ...  None             no
+48               diabetesMed  Feature  ...  None             no
+49                readmitted   Target  ...  None             no
+
+[50 rows x 7 columns]}
+[2024-05-01T15:43:42.776+0000] {xcom.py:640} ERROR - Object of type Index is not JSON serializable. If you are using pickle instead of JSON for XCom, then you need to enable pickle support for XCom in your *** config or make sure to decorate your object with attr.
+[2024-05-01T15:43:42.780+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/json.py", line 91, in default
+    return serialize(o)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/serialization/serde.py", line 171, in serialize
+    raise TypeError(f"cannot serialize object of type {cls}")
+TypeError: cannot serialize object of type <class 'pandas.core.indexes.base.Index'>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 73, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 2384, in xcom_push
+    session=session,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 73, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/xcom.py", line 243, in set
+    map_index=map_index,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/xcom.py", line 632, in serialize_value
+    return json.dumps(value, cls=XComEncoder).encode("UTF-8")
+  File "/usr/local/lib/python3.7/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/json.py", line 104, in encode
+    return super().encode(o)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/json.py", line 93, in default
+    return super().default(o)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Index is not JSON serializable
+[2024-05-01T15:43:42.808+0000] {taskinstance.py:1373} INFO - Marking task as FAILED. dag_id=diabetes_prediction, task_id=fetch_dataset, execution_date=20240501T152420, start_date=20240501T154326, end_date=20240501T154342
+[2024-05-01T15:43:42.839+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 10 for task fetch_dataset (Object of type Index is not JSON serializable; 96)
+[2024-05-01T15:43:42.929+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2024-05-01T15:43:43.545+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,17 @@
+artifact_path: DiabetesLogisticRegressionModel
+flavors:
+  python_function:
+    env: conda.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.7.16
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.0.2
+mlflow_version: 1.30.1
+model_uuid: 9de4d8d561144885a4b0085c38a1d78f
+run_id: f4661ef548324190ac7068d379730354
+utc_time_created: '2024-05-03 01:57:50.178953'

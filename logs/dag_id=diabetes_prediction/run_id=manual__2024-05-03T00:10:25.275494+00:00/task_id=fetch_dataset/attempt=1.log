@@ -1,0 +1,16 @@
+[2024-05-03T00:10:30.553+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: diabetes_prediction.fetch_dataset manual__2024-05-03T00:10:25.275494+00:00 [queued]>
+[2024-05-03T00:10:30.586+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: diabetes_prediction.fetch_dataset manual__2024-05-03T00:10:25.275494+00:00 [queued]>
+[2024-05-03T00:10:30.587+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2024-05-03T00:10:30.651+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): fetch_dataset> on 2024-05-03 00:10:25.275494+00:00
+[2024-05-03T00:10:30.676+0000] {standard_task_runner.py:57} INFO - Started process 1827 to run task
+[2024-05-03T00:10:30.696+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'diabetes_prediction', 'fetch_dataset', 'manual__2024-05-03T00:10:25.275494+00:00', '--job-id', '227', '--raw', '--subdir', 'DAGS_FOLDER/dag1.py', '--cfg-path', '/tmp/tmp1e356b40']
+[2024-05-03T00:10:30.698+0000] {standard_task_runner.py:85} INFO - Job 227: Subtask fetch_dataset
+[2024-05-03T00:10:30.851+0000] {task_command.py:410} INFO - Running <TaskInstance: diabetes_prediction.fetch_dataset manual__2024-05-03T00:10:25.275494+00:00 [running]> on host 9218b8cabb2d
+[2024-05-03T00:10:31.199+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='diabetes_prediction' AIRFLOW_CTX_TASK_ID='fetch_dataset' AIRFLOW_CTX_EXECUTION_DATE='2024-05-03T00:10:25.275494+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-05-03T00:10:25.275494+00:00'
+[2024-05-03T00:10:36.975+0000] {warnings.py:110} WARNING - /opt/***/dags/dag1.py:16: DtypeWarning: Columns (10) have mixed types.Specify dtype option on import or set low_memory=False.
+  data = fetch_ucirepo(id=296)
+
+[2024-05-03T00:10:38.285+0000] {python.py:183} INFO - Done. Returned value was: None
+[2024-05-03T00:10:38.308+0000] {taskinstance.py:1373} INFO - Marking task as SUCCESS. dag_id=diabetes_prediction, task_id=fetch_dataset, execution_date=20240503T001025, start_date=20240503T001030, end_date=20240503T001038
+[2024-05-03T00:10:38.364+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2024-05-03T00:10:38.439+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check
