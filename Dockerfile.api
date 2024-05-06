@@ -4,7 +4,8 @@ FROM python:3.8 AS fastapi
 WORKDIR /app
 
 # Copia los archivos necesarios para Streamlit
-COPY . /app/
+COPY airflow_mlflow/mlflow/1/6e395194149a4d79b260907d26a6527f/artifacts/DiabetesLogisticRegressionModel/model.pkl /app
+COPY . /app
 
 # Instala las dependencias para FastAPI
 RUN pip install -r requirements.txt

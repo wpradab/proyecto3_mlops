@@ -17,14 +17,8 @@ for archivo in archivos_al_nivel:
 
 
 # Cargar el modelo desde el archivo .pkl
-#with open('model.pkl', 'rb') as archivo:
-#    modelo = pickle.load(archivo)
-
-mlflow.set_tracking_uri("http://137.184.38.218:5000")
-logged_model = 'models:/Cance_model/Production'
-
-# Load model as a PyFuncModel.
-modelo = mlflow.pyfunc.load_model(logged_model)
+with open('model.pkl', 'rb') as archivo:
+    modelo = pickle.load(archivo)
 
 
 # Definir la clase de entrada utilizando Pydantic
